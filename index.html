@@ -2,7 +2,7 @@
 <html>
   <head>
     <title>Chart JS examples</title>
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js"></script>
     <link rel="stylesheet" type="text/css" href="style.css">
   </head>
   <body>
@@ -10,27 +10,72 @@
       <h1>Where Selassie, Andre and Austin Spend Their Times</h1>
       <h2>Pre-Covid</h2>
       <canvas id="myChart" width="1600" height="900"></canvas>
-      
+
       <h1>Where Selassie, Andre and Austin Spend Their Times</h1>
       <h2>Post-Covid</h2>
       <canvas id="myChart2" width="1600" height="900"></canvas>
-      
+
     </div>
 
     <script>
     var ctx = document.getElementById("myChart");
     var myChart = new Chart(ctx, {
       type: 'radar',
-      data: {},
-      options: {}   
-    }
-    var ctx2 = document.getElementById("myChart");
+      data: {
+  				labels: ["Work","Bar","Park","Beach","School","Gym","Home"],
+  				datasets: [
+            {
+    					label: "Andre",
+    					borderColor: "#888",
+    					data: [20,1,1,0.5,0.5,0.5,40]
+            },
+            {
+    					label: "Austin",
+    					borderColor: "#66CDAA",
+    					data: [10,1,20,10,0.5,20,40]
+            },
+            {
+    					label: "Selassie",
+    					borderColor: "#DC143C",
+    					data: [10,10,40,30,20,20,20]
+            }
+      ]
+    },
+
+      options: {
+        legend:{display:true}
+      }
+    });
+
+    var ctx2 = document.getElementById("myChart2");
     var myChart2 = new Chart(ctx2, {
-      type: 'radar',
-      data: {},
-      options: {}   
-    }
-                            
+        type: 'radar',
+        data: {
+    				labels: ["Work","Bar","Park","Beach","School","Gym","Home"],
+    				datasets: [
+              {
+      					label: "Andre",
+      					borderColor: "#888",
+      					data: [1,0.5,10,0.5,20,0.5,50]
+              },
+              {
+      					label: "Austin",
+      					borderColor: "#66CDAA",
+      					data: [10,0.5,50,40,50,1,50]
+              },
+              {
+      					label: "Selassie",
+      					borderColor: "#DC143C",
+      					data: [1,10,30,20,20,40,20]
+              }
+        ]
+      },
+
+      options: {
+        legend:{display:true}
+      }
+    });
+
     </script>
   </body>
   <!-- Thanks to Tobias Ahlin, whose chart.js tutorial forms the basis of the line graph portion of this exercise -->
